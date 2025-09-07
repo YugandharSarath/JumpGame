@@ -1,5 +1,5 @@
-import NQueens2App from "./Queen";
+import JumpGame from "./JumpGame";
 
 export default function App() {
-  return <NQueens2App />;
+  return <JumpGame />;
 }

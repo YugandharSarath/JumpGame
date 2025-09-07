@@ -1,31 +1,70 @@
 {
-  "problem": "N-Queens II",
-  "difficulty": "Hard",
-  "category": "Backtracking",
-  "tags": ["Backtracking", "Recursion", "Optimization", "Math"],
-  "companiesAsked": ["Amazon", "Adobe", "Apple", "Google", "Microsoft", "Facebook/Meta", "Uber", "ByteDance", "LinkedIn"],
-  "expectedDuration": "30-45 minutes",
-  "timeComplexity": "O(N!)",
-  "spaceComplexity": "O(N)",
-  "leetcodeNumber": 52,
-  "optimizations": [
-    "Set-based conflict detection",
-    "Bitwise operations",
-    "Memory-efficient counting",
-    "No solution storage required"
-  ],
-  "keyDifferences": {
-    "fromNQueensI": "Returns count instead of all solutions, more memory efficient"
+  "problem": {
+    "title": "Jump Game",
+    "number": 55,
+    "difficulty": "Medium",
+    "topics": ["Array", "Dynamic Programming", "Greedy"],
+    "leetcode_url": "https://leetcode.com/problems/jump-game/",
+    "description": "Determine if you can reach the last index of an array where each element represents maximum jump length from that position."
   },
-  "expectedCounts": {
-    "1": 1,
-    "2": 0,
-    "3": 0,
-    "4": 2,
-    "5": 10,
-    "6": 4,
-    "7": 40,
-    "8": 92,
-    "9": 352
-  }
+  "companies": [
+    "Amazon",
+    "Microsoft",
+    "Google",
+    "Facebook/Meta",
+    "Apple",
+    "Netflix",
+    "Uber",
+    "LinkedIn",
+    "Adobe",
+    "Salesforce",
+    "Goldman Sachs",
+    "JPMorgan",
+    "Bloomberg",
+    "Twitter",
+    "Airbnb"
+  ],
+
+  "interview_info": {
+    "typical_duration": "25-35 minutes",
+    "follow_up_questions": [
+      "What if you need to find the minimum number of jumps?",
+      "Can you solve it with O(1) space?",
+      "How would you modify this for circular array?",
+      "What if negative jumps were allowed?"
+    ],
+    "related_problems": [
+      "Jump Game II (LeetCode 45)",
+      "Minimum Number of Taps to Open to Water a Garden (LeetCode 1326)",
+      "Video Stitching (LeetCode 1024)"
+    ]
+  },
+  "solution": {
+    "optimal_approach": "Greedy",
+    "time_complexity": "O(n)",
+    "space_complexity": "O(1)",
+    "alternative_approaches": [
+      {
+        "name": "Dynamic Programming",
+        "time_complexity": "O(n²)",
+        "space_complexity": "O(n)",
+        "note": "Less efficient but more intuitive"
+      },
+      {
+        "name": "Backtracking",
+        "time_complexity": "O(2^n)",
+        "space_complexity": "O(n)",
+        "note": "Exponential time, not recommended"
+      }
+    ]
+  },
+  "tags": [
+    "greedy-algorithm",
+    "array-traversal",
+    "dynamic-programming",
+    "optimization",
+    "decision-problem",
+    "reachability"
+  ],
+  "last_updated": "2024-01-15"
 }

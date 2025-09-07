@@ -1,38 +1,33 @@
-# N-Queens II Problem - Hints
+# Jump Game - Hints
 
-## Algorithm Approach
+## Hint 1: Think Greedy 🎯
+Instead of trying all possible paths, think about tracking the farthest position you can reach at any point.
 
-### 1. Counting-Optimized Backtracking
-- **Think recursively**: Place queens row by row
-- **Count only**: Increment counter when valid solution found
-- **No storage needed**: Don't construct board or solution arrays
-- **Early optimization**: Use Set-based conflict tracking
+## Hint 2: One Pass Solution 🏃‍♂️
+You only need to traverse the array once. At each position, update the maximum distance you can reach.
 
-### 2. Key Optimization Insight
-```
-N-Queens I: Stores all solutions → O(N² × solutions) space
-N-Queens II: Counts solutions → O(N) space
+## Hint 3: Early Termination ✋
+If at any point your current position exceeds the maximum reachable position, you know it's impossible.
 
-Since we only need the count, we can:
-- Skip board construction
-- Use efficient conflict detection
-- Avoid string/array operations
-```
+## Hint 4: Mathematical Insight 📊
+At position `i` with value `nums[i]`, you can reach any position from `i+1` to `i+nums[i]`.
 
-### 3. Optimized Validation Strategy
-```javascript
+## Hint 5: Key Variables 🔑
+You only need one variable: `maxReach` to track the farthest index you can reach.
 
-function isValid(row, col, board) { ... }
+## Algorithm Steps:
+1. Initialize `maxReach = 0`
+2. For each position `i`:
+   - If `i > maxReach`, return false (stuck!)
+   - Update `maxReach = max(maxReach, i + nums[i])`
+   - If `maxReach >= length-1`, return true (can reach end!)
+3. Return `maxReach >= length-1`
 
-const cols = new Set();
-const diag1 = new Set(); 
-const diag2 = new Set(); 
-```
+## Common Mistakes to Avoid ⚠️
+- Don't use recursion or try all paths (leads to exponential time)
+- Don't use extra space for DP unless required
+- Remember to handle edge case of single element array
+- Check if you're stuck before trying to make a jump
 
-## Implementation Approaches
-
-### Approach 1: Basic Counting (Easier)
-```javascript
-function totalNQueens(n) {
-    let count = 0;
-    const boar
+## Time Complexity: O(n) - Single pass
+## Space Complexity: O(1) - Only using constant extra space

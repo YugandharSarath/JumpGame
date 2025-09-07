@@ -1,45 +1,24 @@
-# N-Queens II Problem 
-
-## Problem
-
-Count the number of distinct solutions to place `n` queens on an `n × n` chessboard so that no two queens attack each other (no same row, column, or diagonal).
+# Jump Game Problem
 
 ## Requirements
+You are given an integer array `nums` where you start at the first index (index 0). Each element in the array represents the maximum number of steps you can jump forward from that position.
 
-* **Input**: Integer `n` (1 ≤ n ≤ 9)
-* **Output**: `Integer` — count of all distinct valid solutions
-* Return only the count, not the actual solutions
-* Must count **all unique solutions**
-* Use optimized backtracking for efficiency
-* Handle n ≤ 9 quickly with reasonable memory usage
+Your goal is to determine if you can reach the last index of the array.
 
+## Rules
+- You start at index 0
+- From index i, you can jump to any index from i+1 to i+nums[i] (inclusive)
+- You need to reach index nums.length-1
+- Return true if possible, false otherwise
 
-## Edge Cases & Constraints
+## Edge Cases
+1. **Single element array**: Always return true (you're already at the last index)
+2. **Zero at start**: If nums[0] = 0 and array length > 1, return false
+3. **Zeros in middle**: Can be jumped over if you have enough reach
+4. **Exact reach**: Can reach exactly the last index
+5. **Stuck scenarios**: When you reach a position with 0 jump length before the end
 
-* n = 1 → `1` (one solution)
-* n = 2 or 3 → `0` (no solutions)
-* n < 1 or n > 9 → return `0` or show error
-* Must count **all unique solutions** efficiently
-* Expected counts for validation:
-  - n=4: 2 solutions
-  - n=5: 10 solutions  
-  - n=6: 4 solutions
-  - n=7: 40 solutions
-  - n=8: 92 solutions
-  - n=9: 352 solutions
-
-## Data-Tests
-
-* `data-testid="n-input"` → Board size input
-* `data-testid="solve-button"` → Count trigger
-* `data-testid="solution-count"` → Total solution count display
-* `data-testid="chess-board"` → Optional board visualization (empty reference board)
-
-
-## Key Differences from N-Queens I
-
-* **N-Queens I**: Returns `Array<Array<string>>` with all solutions
-* **N-Queens II**: Returns `number` with count only
-* **Optimization**: Can avoid storing board states and solution arrays
-* **Memory**: Much more memory efficient for large n
-* **Performance**: Faster since no string/array construction needed
+## Constraints
+- Array length: 1 ≤ nums.length ≤ 10⁴
+- Element values: 0 ≤ nums[i] ≤ 10⁵
+- All elements are non-negative integers

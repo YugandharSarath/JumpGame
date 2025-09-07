@@ -1,160 +1,103 @@
+# Jump Game Test Cases
 
-
-## Basic Test Cases
-
-### Test Case 1: n = 1 (single solution)
+## Basic Examples
 ```javascript
-Input: n = 1
-Expected Output: 1
-````
 
-### Test Case 2: n = 2 (no solution)
+Input: [2,3,1,1,4]
+Output: true
+Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
 
+Input: [3,2,1,0,4]
+Output: false
+Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0.
+```
+
+## Edge Cases
+
+### Single Element
 ```javascript
-Input: n = 2
-Expected Output: 0
+Input: [0]
+Output: true
+Explanation: Already at the last index.
+
+Input: [1]
+Output: true
+Explanation: Already at the last index.
 ```
 
-### Test Case 3: n = 3 (no solution)
-
+### Zero at Start
 ```javascript
-Input: n = 3
-Expected Output: 0
+Input: [0, 1]
+Output: false
+Explanation: Cannot move from index 0.
+
+Input: [0, 2, 3]
+Output: false
+Explanation: Stuck at index 0.
 ```
 
-### Test Case 4: n = 4 (classic 4-queens)
-
+### Jumping Over Zeros
 ```javascript
-Input: n = 4
-Expected Output: 2
+Input: [2, 0, 0]
+Output: true
+Explanation: Jump 2 steps from index 0 to reach index 2.
+
+Input: [3, 0, 0, 0]
+Output: true
+Explanation: Jump 3 steps from index 0 to reach index 3.
+
+Input: [1, 0, 1, 0]
+Output: false
+Explanation: Can only reach index 1, but index 1 has value 0.
 ```
 
-### Test Case 5: n = 5
-
+### Complex Cases
 ```javascript
-Input: n = 5
-Expected Output: 10
+Input: [5, 9, 3, 2, 1, 0, 2, 3, 3, 1, 0, 0]
+Output: true
+Explanation: Large initial jump allows reaching the end.
+
+Input: [1, 1, 1, 1, 1]
+Output: true
+Explanation: Can make small jumps to reach the end.
+
+Input: [2, 1, 0, 1]
+Output: true
+Explanation: Jump 2 from index 0 to reach index 2, then 0 to stay at index 2 (which is not the last), but we can jump 1 from index 1.
 ```
 
-### Test Case 6: n = 6
-
+### Boundary Cases
 ```javascript
-Input: n = 6
-Expected Output: 4
+Input: [1, 0, 0, 0]
+Output: false
+Explanation: Can reach index 1, but stuck there.
+
+Input: [2, 1, 0, 0]
+Output: false
+Explanation: Can reach index 2, but stuck there.
+
+Input: [1, 1, 1, 1]
+Output: true
+Explanation: Each jump of 1 reaches the next position.
 ```
 
-### Test Case 7: n = 7
-
+### Performance Test Cases
 ```javascript
-Input: n = 7
-Expected Output: 40
+
+Input: Array of 10000 elements, all with value 1
+Output: true
+
+Input: [100000, 0, 0, 0, ..., 0] (length 10000)
+Output: true
+
+Input: [1, 0, 1, 0, 1, 0, ..., 1] (length 10000)
+Output: false (gets stuck at first 0)
 ```
 
-### Test Case 8: n = 8
-
-```javascript
-Input: n = 8
-Expected Output: 92
-```
-
-### Test Case 9: n = 9
-
-```javascript
-Input: n = 9
-Expected Output: 352
-```
-
----
-
-## Validation / Type Checks
-
-### Test Case 10: Function returns a number
-
-```javascript
-Input: n = 4
-Expected Behavior: typeof result === "number", integer >= 0
-```
-
----
-
-## Performance Test Cases
-
-### Test Case 11: Performance n = 8
-
-```javascript
-Input: n = 8
-Expected Behavior: Complete within 1000ms
-```
-
-### Test Case 12: Performance n = 9
-
-```javascript
-Input: n = 9
-Expected Behavior: Complete within 5000ms
-```
-
----
-
-## Edge Cases & Consistency
-
-### Test Case 13: Maximum constraint n = 9
-
-```javascript
-Input: n = 9
-Expected Output: 352
-```
-
-### Test Case 14: Multiple calls consistency
-
-```javascript
-Input: n = 6
-Expected Behavior: Multiple calls return same result (4)
-```
-
-### Test Case 15: Boundary values
-
-```javascript
-Input: n = 1
-Expected Output: 1
-
-Input: n = 9
-Expected Output: 352
-```
-
-### Test Case 16: Known sequence validation
-
-```javascript
-Input: n = 1..9
-Expected Output: [1, 0, 0, 2, 10, 4, 40, 92, 352]
-```
-
----
-
-## Algorithm Behavior & Correctness
-
-### Test Case 17: Algorithm efficiency (not returning array)
-
-```javascript
-Input: n = 4
-Expected Behavior: Return a number, not an array
-```
-
-### Test Case 18: Verify algorithm correctness manually
-
-```javascript
-Input: n = 1
-Expected Output: 1
-
-Input: n = 2
-Expected Output: 0
-
-Input: n = 3
-Expected Output: 0
-
-Input: n = 4
-Expected Output: 2
-```
-
-```
-
-```
+## Test Coverage
+- ✅ Basic functionality
+- ✅ Edge cases (single element, zeros)
+- ✅ Boundary conditions
+- ✅ Performance with large inputs
+- ✅ All possible return scenarios (true/false)
+- ✅ Maximum constraint values
